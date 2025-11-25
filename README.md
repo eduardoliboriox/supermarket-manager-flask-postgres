@@ -1,3 +1,5 @@
+Visualize a aplicação real através do link no final deste README.md.
+
 ---
 
 ## 🔹 Tecnologias
@@ -14,7 +16,7 @@
 ## 🔹 Estrutura do projeto
 
 ```
-Sistema de Metas - Venttos/
+Nome do Projeto/
 ├─ static/
 │   ├─ logo.png 
 │       ├─ css/
@@ -23,13 +25,10 @@ Sistema de Metas - Venttos/
 │            └─ main.js  
 ├─ templates/
 │  ├─ base.html
-│  ├─ cadastro.html
 │  ├─ dashboard.html
-│  ├─ modelos.html
-│  ├─ calcular.html
-│  ├─ perdas.html
+│  ├─ index.html
 ├─ app.py
-├─ producao.db
+├─ x--banco
 ├─ ping.py
 ├─ Profile   
 ├─ README.md   
@@ -49,8 +48,9 @@ python app.py
 ## 🔗 Acesso ao Sistema (Deploy)
 
 O sistema está disponível online pelo Render:
+Uso contramedidas até na versão free para a página não fechar por inatividade, caso feche, aguarde 50 segundos.
 
-➡️ **https://sistema-meta-tool-venttos.onrender.com/**
+➡️ ** **
 
 ---
 
