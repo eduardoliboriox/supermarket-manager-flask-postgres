@@ -27,13 +27,33 @@ project/
 │   │   └─ api.py         # REST
 │   │
 │   ├─ services/          # regras de negócio
-│   ├─ repositories/     # SQL / ORM
+│   ├─ repositories/      # SQL / ORM
 │   ├─ templates/
 │   └─ static/
+│       ├─ css/
+│       │   └─ style.css
+│       │
+│       ├─ js/
+│       │   └─ main.js
+│       │  
+│       ├─ images/
+│       │   ├─ icons/
+│       │   │  
+│       │   ├─ users/
+│       │   │   ├─ default.png
+│       │   │   └─ user_123.jpg
+│       │   │  
+│       │   ├─ logos/
+│       │   │   └─ logo.png
+│       │   │  
+│       │   └─ banners/
+│       │       └─ hero.jpg
+│       │  
+│       └─ fonts/
+│              └─ inter.woff2
 │
 ├─ migrations/            # Alembic / Flask-Migrate
 ├─ tests/                 # pytest
-│
 ├─ run.py                 # entrypoint da aplicação
 ├─ requirements.txt
 ├─ README.md              # documentação principal
