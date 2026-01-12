@@ -19,8 +19,9 @@ project/
 │   ├─ __init__.py        # create_app()
 │   ├─ config.py          # configs/env
 │   ├─ extensions.py      # db
-│   │
+│   │ 
 │   ├─ routes/
+│   │   ├─__init__.py     # vazio
 │   │   ├─ pages.py       # HTML
 │   │   └─ api.py         # REST
 │   │
