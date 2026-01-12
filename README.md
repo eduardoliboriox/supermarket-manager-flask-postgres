@@ -27,6 +27,11 @@ project/
 │   ├─ services/          # regras de negócio
 │   ├─ repositories/      # SQL / ORM
 │   ├─ templates/
+│   │   ├─ base.html
+│   │   ├─ home.html
+│   │   ├─ produtos.html
+│   │   └─ menu.html
+│   │
 │   └─ static/
 │       ├─ css/
 │       │   └─ style.css

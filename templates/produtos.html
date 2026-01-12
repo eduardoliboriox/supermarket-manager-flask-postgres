@@ -1,0 +1,111 @@
+{% extends "base.html" %}
+{% block title %}Produtos{% endblock %}
+
+{% block content %}
+
+<div class="pagina-produtos">
+
+    <h3 class="titulo-pagina">📦 Produtos Cadastrados</h3>
+
+    {% set categorias = ["Alimentos Principais", "Complementos", "Temperos", "Higiene e Limpeza"] %}
+
+    <div class="produtos-grid">
+        {% for p in produtos %}
+        <div class="produto-admin-card" data-id="{{ p.id }}">
+
+            <input class="produto-nome"
+                   value="{{ p.nome }}"
+                   placeholder="Nome do produto">
+
+            <input class="produto-preco"
+                   type="number"
+                   step="0.01"
+                   value="{{ "%.2f"|format(p.ultimo_preco) }}"
+                   placeholder="Preço">
+
+            <select class="produto-categoria">
+                {% for categoria in categorias %}
+                <option value="{{ categoria }}"
+                    {% if p.setor == categoria %}selected{% endif %}>
+                    {{ categoria }}
+                </option>
+                {% endfor %}
+            </select>
+
+            <div class="acoes-produto">
+                <button class="btn-salvar"
+                        onclick="salvarProduto({{ p.id }})">
+                    Salvar
+                </button>
+
+                <button class="btn-excluir"
+                        onclick="excluirProduto({{ p.id }})">
+                    Excluir
+                </button>
+            </div>
+
+        </div>
+        {% endfor %}
+    </div>
+</div>
+
+
+<!-- ================= JS ================= -->
+<script>
+function salvarProduto(id) {
+    const card = document.querySelector(`[data-id="${id}"]`);
+    if (!card) return;
+
+    const nome  = card.querySelector(".produto-nome").value.trim();
+    const preco = Number(card.querySelector(".produto-preco").value);
+    const setor = card.querySelector(".produto-categoria").value;
+
+    if (!nome || preco <= 0) {
+        alert("Informe um nome válido e um preço maior que zero.");
+        return;
+    }
+
+    fetch("/produto/atualizar", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({
+            id: id,
+            nome: nome,
+            preco: preco,
+            setor: setor
+        })
+    })
+    .then(r => r.json())
+    .then(res => {
+        if (res.status === "ok") {
+            card.classList.add("salvo");
+            setTimeout(() => card.classList.remove("salvo"), 800);
+        } else {
+            alert("Erro ao salvar produto.");
+        }
+    })
+    .catch(() => alert("Erro de comunicação com o servidor."));
+}
+
+function excluirProduto(id) {
+    if (!confirm("Deseja realmente excluir este produto?")) return;
+
+    fetch("/produto/excluir", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ id: id })
+    })
+    .then(r => r.json())
+    .then(res => {
+        if (res.status === "ok") {
+            const card = document.querySelector(`[data-id="${id}"]`);
+            if (card) card.remove();
+        } else {
+            alert("Erro ao excluir produto.");
+        }
+    })
+    .catch(() => alert("Erro de comunicação com o servidor."));
+}
+</script>
+
+{% endblock %}

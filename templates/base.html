@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+
+    <title>{% block title %}Supermercado{% endblock %}</title>
+
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!-- CSS PRINCIPAL -->
+    <link rel="stylesheet"
+          href="{{ url_for('static', filename='css/style.css') }}">
+
+    <!-- FONT AWESOME -->
+    <link rel="stylesheet"
+          href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+</head>
+
+<body>
+
+<!-- ================= HEADER MOBILE ================= -->
+<header class="header-mobile">
+    <div class="header-mobile-left">
+        <div class="avatar-circle">
+            <img src="{{ url_for('static', filename='images/users/eduardo.jpeg') }}"
+                 alt="Usuário">
+        </div>
+        <span class="user-name"></span>
+    </div>
+
+    <div class="header-mobile-right">
+        <button class="btn-search" type="button">
+            <i class="fa-solid fa-magnifying-glass"></i>
+        </button>
+    </div>
+</header>
+
+<!-- ================= CONTEÚDO ================= -->
+<main class="container-fluid mt-2">
+    {% block content %}{% endblock %}
+</main>
+
+<!-- ================= BOTTOM NAV ================= -->
+<nav class="bottom-nav">
+
+    <a href="{{ url_for('pages.home') }}"
+       class="bottom-item {% if page=='home' %}active{% endif %}">
+        <img src="{{ url_for('static', filename='images/icons/home.jpeg') }}"
+             class="bottom-icon"
+             alt="Home">
+        <small>Home</small>
+    </a>
+
+    <a href="{{ url_for('pages.produtos') }}"
+       class="bottom-item {% if page=='produtos' %}active{% endif %}">
+        <img src="{{ url_for('static', filename='images/icons/produtos.jpeg') }}"
+             class="bottom-icon"
+             alt="Produtos">
+        <small>Produtos</small>
+    </a>
+
+    <a class="bottom-item disabled" onclick="paginaEmBreve()">
+        <img src="{{ url_for('static', filename='images/icons/movimentar.jpeg') }}"
+             class="bottom-icon"
+             alt="Carrinho">
+        <small>Carrinho</small>
+    </a>
+
+    <a class="bottom-item disabled" onclick="paginaEmBreve()">
+        <img src="{{ url_for('static', filename='images/icons/menu-mais.png') }}"
+             class="bottom-icon"
+             alt="Mais">
+        <small>Mais</small>
+    </a>
+
+</nav>
+
+<!-- ================= JS GLOBAL ================= -->
+<script src="{{ url_for('static', filename='js/main.js') }}"></script>
+
+<script>
+function paginaEmBreve() {
+    alert("🚧 Página em desenvolvimento");
+}
+</script>
+
+</body>
+</html>

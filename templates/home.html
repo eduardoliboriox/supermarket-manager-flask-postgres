@@ -1,0 +1,249 @@
+{% extends "base.html" %}
+{% block content %}
+
+<div class="lista-compras">
+
+    <!-- ================= TOPO FIXO ================= -->
+    <div class="topo-fixo-compras">
+        <h2 class="titulo">🛒 Lista de Compras</h2>
+
+        <div class="resumo-valores">
+            <div class="valor-card fw-bold">
+                <span>Total Atual</span>
+                <strong id="total-atual">R$ 0,00</strong>
+            </div>
+
+            <div class="valor-card fw-bold">
+                <span>Gasto Previsto</span>
+                <input type="number" id="gasto-previsto" placeholder="R$ 0,00" step="0.01">
+            </div>
+
+            <div class="valor-card destaque">
+                <span>Saldo Disponível</span>
+                <strong id="saldo-disponivel">R$ 0,00</strong>
+            </div>
+        </div>
+
+        <div class="acoes-topo">
+            <button class="btn-mini" onclick="abrirModalProduto()">
+                Cadastrar Produto
+            </button>
+
+            <button class="btn-mini btn-limpar" onclick="limparDados()">
+                Limpar dados
+            </button>
+        </div>
+    </div>
+    <!-- ================= FIM TOPO ================= -->
+
+
+    <!-- ================= CATEGORIAS ================= -->
+    {% set categorias = ["Alimentos Principais", "Complementos", "Temperos", "Higiene e Limpeza"] %}
+    {% for categoria in categorias %}
+    <div class="categoria" data-categoria="{{ categoria }}">
+
+        <div class="categoria-header">
+            <h3>{{ categoria }}</h3>
+            <button class="btn-add-produto" onclick="abrirModalProduto('{{ categoria }}')">+</button>
+        </div>
+
+        {% for p in produtos if p.setor == categoria %}
+        <div class="produto-card" data-preco="{{ p.ultimo_preco }}">
+
+            <div class="linha">
+                <span class="nome">{{ p.nome }}</span>
+
+                <span class="preco-texto">
+                    R$ {{ "%.2f"|format(p.ultimo_preco) }}
+                </span>
+
+                <input type="number"
+                       class="preco-input"
+                       value="{{ p.ultimo_preco }}"
+                       step="0.01">
+            </div>
+
+            <div class="linha">
+                <div class="qtd">
+                    <button class="btn-menos">−</button>
+                    <span class="qtd-valor">0</span>
+                    <button class="btn-mais">+</button>
+                </div>
+
+                <strong class="total-produto">
+                    R$ {{ "%.2f"|format(p.ultimo_preco) }}
+                </strong>
+            </div>
+        </div>
+        {% endfor %}
+
+    </div>
+    {% endfor %}
+
+</div>
+
+
+<!-- ================= MODAL ================= -->
+<div class="modal" id="modalProduto">
+    <div class="modal-content">
+        <h3>Novo Produto</h3>
+
+        <form method="POST" action="{{ url_for('add_item') }}">
+            <input type="text" name="nome" placeholder="Nome do produto" required>
+            <input type="number" name="preco" step="0.01" placeholder="Preço" required>
+
+            <select name="setor" id="select-setor" required>
+                {% for categoria in categorias %}
+                <option value="{{ categoria }}">{{ categoria }}</option>
+                {% endfor %}
+            </select>
+
+            <div class="modal-actions">
+                <button type="button" class="btn-cancelar" onclick="fecharModalProduto()">Cancelar</button>
+                <button type="submit" class="btn-salvar">Salvar</button>
+            </div>
+        </form>
+    </div>
+</div>
+
+
+<!-- ================= JS ================= -->
+<script>
+let categoriaAtual = null;
+
+const formatar = v =>
+    "R$ " + Number(v).toFixed(2).replace(".", ",");
+
+function abrirModalProduto(categoria = null) {
+    categoriaAtual = categoria;
+    document.getElementById("modalProduto").style.display = "flex";
+
+    if (categoria) {
+        document.getElementById("select-setor").value = categoria;
+    }
+}
+
+function fecharModalProduto() {
+    document.getElementById("modalProduto").style.display = "none";
+}
+
+function calcularTotais() {
+    let total = 0;
+
+    document.querySelectorAll(".produto-card").forEach(card => {
+        const preco = Number(card.dataset.preco) || 0;
+        const qtd = Number(card.querySelector(".qtd-valor").innerText) || 0;
+        total += preco * qtd;
+    });
+
+    document.getElementById("total-atual").innerText = formatar(total);
+
+    const gastoPrevisto = Number(document.getElementById("gasto-previsto").value || 0);
+    document.getElementById("saldo-disponivel").innerText =
+        formatar(gastoPrevisto - total);
+}
+
+function ativarEventosProduto(card) {
+    const precoTexto = card.querySelector(".preco-texto");
+    const precoInput = card.querySelector(".preco-input");
+    const qtdSpan = card.querySelector(".qtd-valor");
+
+    precoInput.style.display = "none";
+
+    precoTexto.onclick = () => {
+        precoTexto.style.display = "none";
+        precoInput.style.display = "inline-block";
+        precoInput.focus();
+    };
+
+    precoInput.onblur = () => {
+        const novoPreco = Number(precoInput.value) || 0;
+        card.dataset.preco = novoPreco;
+        precoTexto.innerText = formatar(novoPreco);
+        precoTexto.style.display = "inline";
+        precoInput.style.display = "none";
+        atualizarProduto(card);
+    };
+
+    card.querySelector(".btn-mais").onclick = () => {
+        qtdSpan.innerText = Number(qtdSpan.innerText) + 1;
+        atualizarProduto(card);
+    };
+
+    card.querySelector(".btn-menos").onclick = () => {
+        qtdSpan.innerText = Math.max(0, Number(qtdSpan.innerText) - 1);
+        atualizarProduto(card);
+    };
+}
+
+function atualizarProduto(card) {
+    const preco = Number(card.dataset.preco) || 0;
+    const qtd = Number(card.querySelector(".qtd-valor").innerText) || 0;
+
+    card.querySelector(".total-produto").innerText = formatar(preco * qtd);
+    calcularTotais();
+    salvarEstado();
+}
+
+function salvarEstado() {
+    const estado = {
+        gastoPrevisto: document.getElementById("gasto-previsto").value,
+        produtos: []
+    };
+
+    document.querySelectorAll(".produto-card").forEach(card => {
+        estado.produtos.push({
+            nome: card.querySelector(".nome").innerText,
+            preco: Number(card.dataset.preco),
+            qtd: Number(card.querySelector(".qtd-valor").innerText)
+        });
+    });
+
+    localStorage.setItem("listaCompras", JSON.stringify(estado));
+}
+
+function restaurarEstado() {
+    const dados = localStorage.getItem("listaCompras");
+    if (!dados) return;
+
+    const estado = JSON.parse(dados);
+    document.getElementById("gasto-previsto").value = estado.gastoPrevisto || 0;
+
+    document.querySelectorAll(".produto-card").forEach(card => {
+        const nome = card.querySelector(".nome").innerText;
+        const salvo = estado.produtos.find(p => p.nome === nome);
+        if (salvo) {
+            card.dataset.preco = salvo.preco;
+            card.querySelector(".qtd-valor").innerText = salvo.qtd;
+            card.querySelector(".preco-texto").innerText = formatar(salvo.preco);
+            card.querySelector(".total-produto").innerText =
+                formatar(salvo.preco * salvo.qtd);
+        }
+    });
+
+    calcularTotais();
+}
+
+function limparDados() {
+    if (!confirm("Deseja limpar todos os dados da compra atual?")) return;
+
+    localStorage.removeItem("listaCompras");
+    document.querySelectorAll(".qtd-valor").forEach(q => q.innerText = 0);
+    document.getElementById("gasto-previsto").value = 0;
+    calcularTotais();
+}
+
+window.addEventListener("load", () => {
+    document.querySelectorAll(".produto-card").forEach(ativarEventosProduto);
+
+    document.getElementById("gasto-previsto").addEventListener("input", () => {
+        calcularTotais();
+        salvarEstado();
+    });
+
+    restaurarEstado();
+    calcularTotais();
+});
+</script>
+
+{% endblock %}
