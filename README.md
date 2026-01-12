@@ -34,7 +34,31 @@ Nome do Projeto/
 ├─ README.md   
 ├─ requirements.txt 
 ```
+
+project/
+├─ app/
+│   ├─ __init__.py        # create_app()
+│   ├─ config.py          # configs/env
+│   ├─ extensions.py      # db
+│   │
+│   ├─ routes/
+│   │   ├─ pages.py       # HTML
+│   │   └─ api.py         # REST
+│   │
+│   ├─ services/          # regras de negócio
+│   ├─ repositories/      # SQL / ORM
+│   ├─ templates/
+│   └─ static/
+│
+├─ migrations/
+├─ tests/
+├─ run.py
+├─ requirements.txt
+└─ .env
+
 ---
+
+
 
 ## 📁 Como Rodar
 
