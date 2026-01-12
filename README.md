@@ -2,14 +2,12 @@ Visualize a aplicação real através do link no final deste README.md.
 
 ---
 
-## 🔹 Tecnologias
-
+## 🔹 Stack
 - Python 3.11+
 - Flask 2.3+
-- SQLite (banco de dados local)
-- HTML5, CSS3, Bootstrap 5
-- DataTables (via CDN)
-- JavaScript (Fetch API + AJAX)
+- PostgreSQL
+- HTML / CSS / JavaScript
+- Cloud (Railway)
 
 ---
 
@@ -63,8 +61,6 @@ project/
 └─ pyproject.toml (opcional)
 ```
 ---
-
-
 
 ## 📁 Como Rodar
 
