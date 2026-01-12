@@ -16,25 +16,6 @@ Visualize a aplicação real através do link no final deste README.md.
 ## 🔹 Estrutura do projeto
 
 ```
-Nome do Projeto/
-├─ static/
-│   ├─ logo.png 
-│       ├─ css/
-│            └─ style.css  
-│       ├─ js/
-│            └─ main.js  
-├─ templates/
-│  ├─ base.html
-│  ├─ dashboard.html
-│  ├─ index.html
-├─ app.py
-├─ x--banco
-├─ ping.py
-├─ Profile   
-├─ README.md   
-├─ requirements.txt 
-```
-
 project/
 ├─ app/
 │   ├─ __init__.py        # create_app()
@@ -46,16 +27,21 @@ project/
 │   │   └─ api.py         # REST
 │   │
 │   ├─ services/          # regras de negócio
-│   ├─ repositories/      # SQL / ORM
+│   ├─ repositories/     # SQL / ORM
 │   ├─ templates/
 │   └─ static/
 │
-├─ migrations/
-├─ tests/
-├─ run.py
+├─ migrations/            # Alembic / Flask-Migrate
+├─ tests/                 # pytest
+│
+├─ run.py                 # entrypoint da aplicação
 ├─ requirements.txt
-└─ .env
-
+├─ README.md              # documentação principal
+├─ Procfile               # Railway / Heroku
+├─ .env                   # variáveis locais (NÃO versionar)
+├─ .gitignore
+└─ pyproject.toml (opcional)
+```
 ---
 
 
