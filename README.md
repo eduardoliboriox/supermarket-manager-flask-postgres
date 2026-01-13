@@ -150,14 +150,30 @@ O sistema recalcula automaticamente:
 ---
 
 ## ▶️ Como Rodar o Projeto
-### 1. Clone o repositório
 
 ```
-pip install -r requirements.txt
-python run.py
+1. Clonar o repositório
+   git clone https://github.com/seu-usuario/seu-repositorio.git
+   cd seu-repositorio
 
-Depois, acesse no navegador:
-http://127.0.0.1:5000
+2. Criar e ativar o ambiente virtual
+   python -m venv venv
+   venv\Scripts\activate
+
+3. Instalar as dependências
+   pip install -r requirements.txt
+
+4. Configurar variáveis de ambiente
+   Crie um arquivo .env na raiz do projeto:
+   FLASK_ENV=development
+   SECRET_KEY=supersecretkey
+   DATABASE_URL=postgresql://user:password@localhost:5432/dbname
+
+5. Rodar a aplicação
+   python run.py
+
+   Depois, acessar no navegador:
+   http://127.0.0.1:5000
 ```
 ---
 
