@@ -14,8 +14,9 @@ O sistema substitui listas em papel ou anotações improvisadas, oferecendo uma 
 
 ---
 
-```
 ## 📁 Estrutura do Projeto
+
+```
 supermarket-system/
 ├─ app/
 │   ├─ __init__.py            # create_app()
