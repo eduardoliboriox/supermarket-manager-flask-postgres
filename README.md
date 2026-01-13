@@ -79,13 +79,12 @@ supermarket-system/
 * Total atual da compra
 * Gasto previsto
 * Saldo disponível
-
 * Persistência automática dos dados usando LocalStorage
 * Botão para limpar todos os dados da compra
 * Modal para cadastro rápido de produtos
 * Interface moderna e organizada
 * Layout responsivo para desktop e mobile
-
+  
 ---
 
 ## 🧮 Cálculo em Tempo Real
