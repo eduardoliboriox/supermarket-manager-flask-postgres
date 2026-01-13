@@ -28,7 +28,8 @@ supermarket-system/
 │   │   └─ api.py             # rotas REST (JSON)
 │   │
 │   ├─ services/              # regras de negócio
-│   │   └─ __init__.py        # pacote services (NÃO blueprint)
+│   │   ├─ __init__.py.       # pacote services (NÃO blueprint)  
+│   │   └─ produto_service.py
 │   │
 │   ├─ repositories/          # acesso ao banco (SQL)
 │   │   └─ __init__.py        # pacote repositories
