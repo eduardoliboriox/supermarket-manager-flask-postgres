@@ -45,7 +45,9 @@ supermarket-system/
 │       ├─ js/
 │       │   └─ main.js
 │       ├─ images/
-│       │   └─ ...
+│       │   ├─ banners/
+│       │   ├─ logos/
+│       │   └─ users/
 │       └─ fonts/
 │           └─ inter.woff2
 │
