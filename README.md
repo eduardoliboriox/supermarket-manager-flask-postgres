@@ -58,138 +58,104 @@ supermarket-system/
 ---
 
 ## 🚀 Funcionalidades
-Cadastro de produtos por categoria:
+### 1. Cadastro de produtos por categoria:
 
-Alimentos Principais
+* Alimentos Principais
+* Complementos
+* Temperos
+* Higiene e Limpeza
 
-Complementos
+### 2. Ajuste de quantidade com botões + / −
 
-Temperos
+* Edição rápida de preço direto na tela
+* Cálculo automático de:
+* Total atual da compra
+* Gasto previsto
+* Saldo disponível
 
-Higiene e Limpeza
-
-Ajuste de quantidade com botões + / −
-
-Edição rápida de preço direto na tela
-
-Cálculo automático de:
-
-Total atual da compra
-
-Gasto previsto
-
-Saldo disponível
-
-Persistência automática dos dados usando LocalStorage
-
-Botão para limpar todos os dados da compra
-
-Modal para cadastro rápido de produtos
-
-Interface moderna e organizada
-
-Layout responsivo para desktop e mobile
+* Persistência automática dos dados usando LocalStorage
+* Botão para limpar todos os dados da compra
+* Modal para cadastro rápido de produtos
+* Interface moderna e organizada
+* Layout responsivo para desktop e mobile
 
 ---
 
 ## 🧮 Cálculo em Tempo Real
 O sistema recalcula automaticamente:
 
-Total de cada produto (preço × quantidade)
-
-Total geral da compra
-
-Saldo disponível com base no gasto previsto informado
-
-Qualquer alteração de preço, quantidade ou orçamento reflete instantaneamente nos valores exibidos.
+* Total de cada produto (preço × quantidade)
+* Total geral da compra
+* Saldo disponível com base no gasto previsto informado
+* Qualquer alteração de preço, quantidade ou orçamento reflete instantaneamente nos valores exibidos.
 
 ---
 
 ## 💾 Persistência de Dados
-A aplicação salva automaticamente no navegador:
+### 1. A aplicação salva automaticamente no navegador:
 
-Quantidade dos produtos
-
-Preços atualizados
-
-Gasto previsto
-
-Isso garante que os dados não sejam perdidos ao atualizar a página, permitindo continuar a compra de onde parou.
+* Quantidade dos produtos
+* Preços atualizados
+* Gasto previsto
+* Isso garante que os dados não sejam perdidos ao atualizar a página, permitindo continuar a compra de onde parou.
 
 ---
 
 ## 🪟 Modal de Cadastro de Produto
-O cadastro de novos produtos é feito através de um modal simples, permitindo:
+### 1. O cadastro de novos produtos é feito através de um modal simples, permitindo:
 
-Informar nome do produto
-
-Definir preço
-
-Selecionar a categoria
-
-Após salvar, o produto aparece automaticamente na lista correspondente.
+* Informar nome do produto
+* Definir preço
+* Selecionar a categoria
+* Após salvar, o produto aparece automaticamente na lista correspondente.
 
 ---
 
 ## 🎨 Interface e Experiência do Usuário (UX)
-Design limpo e focado no conteúdo
-
-Botões grandes e acessíveis
-
-Separação clara por categorias
-
-Destaque visual para valores importantes
-
-Botão de ação destrutiva (Limpar dados) com cor diferenciada
-
-Interações sem recarregar a página
+* Design limpo e focado no conteúdo
+* Botões grandes e acessíveis
+* Separação clara por categorias
+* Destaque visual para valores importantes
+* Botão de ação destrutiva (Limpar dados) com cor diferenciada
+* Interações sem recarregar a página
 
 ---
 
 ## 📱 Desktop e Mobile
 ### 💻 Desktop
-Visual completo
-
-Organização clara das categorias
-
-Ideal para planejamento detalhado
+* Visual completo
+* Organização clara das categorias
+* Ideal para planejamento detalhado
 
 ### 📲 Mobile
-Layout adaptado ao toque
-
-Navegação simples
-
-Experiência semelhante a aplicativo
+* Layout adaptado ao toque
+* Navegação simples
+* Experiência semelhante a aplicativo
 
 ## ⚙️ Tecnologias Utilizadas
-Python (Flask)
-
-HTML5
-
-CSS3
-
-JavaScript (Vanilla)
-
-Jinja2
-
-LocalStorage
+* Python (Flask)
+* HTML5
+* CSS3
+* JavaScript (Vanilla)
+* Jinja2
+* LocalStorage
 
 ---
-
+```
 ## ▶️ Como Rodar o Projeto
 pip install -r requirements.txt
 python app.py
 Depois, acesse no navegador:
 
 http://127.0.0.1:5000
-📌 Observações
-O sistema não utiliza login
+```
+---
 
-Os dados da compra atual ficam salvos localmente no navegador
-
-O cadastro de produtos é persistido no banco de dados
-
-Projeto ideal para uso pessoal ou familiar
+## 📌 Observações
+* O sistema não utiliza login
+* Os dados da compra atual ficam salvos localmente no navegador
+* O cadastro de produtos é persistido no banco de dados
+* Projeto ideal para uso pessoal ou familiar
 
 ---
 
