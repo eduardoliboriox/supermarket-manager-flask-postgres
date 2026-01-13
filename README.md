@@ -2,7 +2,7 @@
 
 A Lista de Compras Inteligente é uma aplicação web desenvolvida para organizar compras domésticas de forma prática, visual e persistente, permitindo controlar quantidades, preços, totais, gasto previsto e saldo disponível em tempo real.
 O sistema substitui listas em papel ou anotações improvisadas, oferecendo uma experiência fluida tanto no desktop quanto no mobile, com foco em simplicidade, organização e usabilidade.
-203110776 DS-248C8 BOTTOM LOTE 0038  = 4.092 PLACAS
+
 ---
 
 ## 🎯 Objetivo do Projeto
