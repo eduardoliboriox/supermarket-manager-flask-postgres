@@ -150,6 +150,7 @@ O sistema recalcula automaticamente:
 ---
 
 ## ▶️ Como Rodar o Projeto
+### 1. Clone o repositório
 
 ```
 pip install -r requirements.txt
