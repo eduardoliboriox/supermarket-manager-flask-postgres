@@ -88,7 +88,7 @@
     <div class="modal-content">
         <h3>Novo Produto</h3>
 
-        <form method="POST" action="{{ url_for('add_item') }}">
+        <form method="POST" action="{{ url_for('pages.add_item') }}">
             <input type="text" name="nome" placeholder="Nome do produto" required>
             <input type="number" name="preco" step="0.01" placeholder="Preço" required>
 
