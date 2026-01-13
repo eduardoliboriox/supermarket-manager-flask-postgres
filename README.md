@@ -1,10 +1,11 @@
 ## 🛒 Lista de Compras Inteligente
-A Lista de Compras Inteligente é uma aplicação web desenvolvida para organizar compras domésticas de forma prática, visual e persistente, permitindo controlar quantidades, preços, totais, gasto previsto e saldo disponível em tempo real.
 
+A Lista de Compras Inteligente é uma aplicação web desenvolvida para organizar compras domésticas de forma prática, visual e persistente, permitindo controlar quantidades, preços, totais, gasto previsto e saldo disponível em tempo real.
 O sistema substitui listas em papel ou anotações improvisadas, oferecendo uma experiência fluida tanto no desktop quanto no mobile, com foco em simplicidade, organização e usabilidade.
+
 ---
 
-🎯 Objetivo do Projeto
+## 🎯 Objetivo do Projeto
 Centralizar todos os produtos da compra em um único local
 
 Controlar valores automaticamente conforme as quantidades variam
@@ -14,6 +15,7 @@ Manter os dados salvos mesmo após atualizar a página
 Facilitar o cadastro rápido de novos produtos
 
 Garantir uma experiência intuitiva e funcional
+
 ---
 
 ```
@@ -56,9 +58,9 @@ supermarket-system/
 ├─ .env                       # Variáveis de ambiente (não versionar)
 ├─ .gitignore
 └─ README.md
-
 ```
 ---
+
 ## 🚀 Funcionalidades
 Cadastro de produtos por categoria:
 
@@ -92,6 +94,8 @@ Interface moderna e organizada
 
 Layout responsivo para desktop e mobile
 
+---
+
 ## 🧮 Cálculo em Tempo Real
 O sistema recalcula automaticamente:
 
@@ -103,7 +107,9 @@ Saldo disponível com base no gasto previsto informado
 
 Qualquer alteração de preço, quantidade ou orçamento reflete instantaneamente nos valores exibidos.
 
-💾 Persistência de Dados
+---
+
+## 💾 Persistência de Dados
 A aplicação salva automaticamente no navegador:
 
 Quantidade dos produtos
@@ -113,6 +119,8 @@ Preços atualizados
 Gasto previsto
 
 Isso garante que os dados não sejam perdidos ao atualizar a página, permitindo continuar a compra de onde parou.
+
+---
 
 ## 🪟 Modal de Cadastro de Produto
 O cadastro de novos produtos é feito através de um modal simples, permitindo:
@@ -124,6 +132,8 @@ Definir preço
 Selecionar a categoria
 
 Após salvar, o produto aparece automaticamente na lista correspondente.
+
+---
 
 ## 🎨 Interface e Experiência do Usuário (UX)
 Design limpo e focado no conteúdo
@@ -138,22 +148,24 @@ Botão de ação destrutiva (Limpar dados) com cor diferenciada
 
 Interações sem recarregar a página
 
-📱 Desktop e Mobile
-💻 Desktop
+---
+
+## 📱 Desktop e Mobile
+### 💻 Desktop
 Visual completo
 
 Organização clara das categorias
 
 Ideal para planejamento detalhado
 
-📲 Mobile
+### 📲 Mobile
 Layout adaptado ao toque
 
 Navegação simples
 
 Experiência semelhante a aplicativo
 
-⚙️ Tecnologias Utilizadas
+## ⚙️ Tecnologias Utilizadas
 Python (Flask)
 
 HTML5
@@ -166,7 +178,9 @@ Jinja2
 
 LocalStorage
 
-▶️ Como Rodar o Projeto
+---
+
+## ▶️ Como Rodar o Projeto
 pip install -r requirements.txt
 python app.py
 Depois, acesse no navegador:
@@ -180,6 +194,8 @@ Os dados da compra atual ficam salvos localmente no navegador
 O cadastro de produtos é persistido no banco de dados
 
 Projeto ideal para uso pessoal ou familiar
+
+---
 
 ## 👨‍💻 Autor 
 Desenvolvido por Eduardo Libório
