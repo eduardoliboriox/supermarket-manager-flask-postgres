@@ -6,15 +6,11 @@ O sistema substitui listas em papel ou anotações improvisadas, oferecendo uma 
 ---
 
 ## 🎯 Objetivo do Projeto
-Centralizar todos os produtos da compra em um único local
-
-Controlar valores automaticamente conforme as quantidades variam
-
-Manter os dados salvos mesmo após atualizar a página
-
-Facilitar o cadastro rápido de novos produtos
-
-Garantir uma experiência intuitiva e funcional
+* Centralizar todos os produtos da compra em um único local
+* Controlar valores automaticamente conforme as quantidades variam
+* Manter os dados salvos mesmo após atualizar a página
+* Facilitar o cadastro rápido de novos produtos
+* Garantir uma experiência intuitiva e funcional
 
 ---
 
