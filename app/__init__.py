@@ -46,3 +46,6 @@ def create_app():
         print("Erro ao inicializar banco:", e)
 
     return app
+
+app = create_app()
+
