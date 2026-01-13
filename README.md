@@ -34,8 +34,8 @@ project/
 │   ├─ templates/             # Jinja2 (OBRIGATÓRIO aqui)
 │   │   ├─ base.html
 │   │   ├─ home.html
-│   │   ├─ produtos.html
-│   │   └─ menu.html
+│   │   ├─ menu.html
+│   │   └─ produtos.html
 │   │
 │   └─ static/                # arquivos estáticos
 │       ├─ css/
