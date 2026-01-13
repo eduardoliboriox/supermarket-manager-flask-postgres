@@ -147,8 +147,10 @@ O sistema recalcula automaticamente:
 * LocalStorage
 
 ---
-```
+
 ## ▶️ Como Rodar o Projeto
+
+```
 pip install -r requirements.txt
 python run.py
 
