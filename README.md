@@ -1,83 +1,186 @@
-Visualize a aplicação real através do link no final deste README.md.
+## 🛒 Lista de Compras Inteligente
+A Lista de Compras Inteligente é uma aplicação web desenvolvida para organizar compras domésticas de forma prática, visual e persistente, permitindo controlar quantidades, preços, totais, gasto previsto e saldo disponível em tempo real.
 
+O sistema substitui listas em papel ou anotações improvisadas, oferecendo uma experiência fluida tanto no desktop quanto no mobile, com foco em simplicidade, organização e usabilidade.
 ---
 
-## 🔹 Stack
-- Python 3.11+
-- Flask 2.3+
-- PostgreSQL
-- HTML / CSS / JavaScript
-- Cloud (Railway)
+🎯 Objetivo do Projeto
+Centralizar todos os produtos da compra em um único local
 
+Controlar valores automaticamente conforme as quantidades variam
+
+Manter os dados salvos mesmo após atualizar a página
+
+Facilitar o cadastro rápido de novos produtos
+
+Garantir uma experiência intuitiva e funcional
 ---
-
-## 🔹 Estrutura do projeto
 
 ```
+## 📁 Estrutura do Projeto
 supermarket-system/
 ├─ app/
-│   ├─ __init__.py            # create_app()
-│   ├─ config.py              # Config / env
-│   ├─ extensions.py          # DB (psycopg, etc)
+│   ├─ __init__.py            # Application Factory (create_app)
+│   ├─ config.py              # Configurações e variáveis de ambiente
+│   ├─ extensions.py          # Conexão com PostgreSQL
 │   │
 │   ├─ routes/
-│   │   ├─ __init__.py        # registra blueprints
-│   │   ├─ pages.py           # rotas HTML
-│   │   └─ api.py             # rotas REST (JSON)
+│   │   ├─ __init__.py
+│   │   ├─ pages.py           # Rotas HTML
+│   │   └─ api.py             # Rotas REST (JSON)
 │   │
-│   ├─ services/              # regras de negócio
-│   │   └─ __init__.py        # pacote services (NÃO blueprint)
+│   ├─ services/              # Regras de negócio
+│   │   └─ __init__.py
 │   │
-│   ├─ repositories/          # acesso ao banco (SQL)
-│   │   └─ __init__.py        # pacote repositories
+│   ├─ repositories/          # Acesso ao banco (SQL)
+│   │   └─ __init__.py
 │   │
-│   ├─ templates/             # Jinja2
+│   ├─ templates/
 │   │   ├─ base.html
 │   │   ├─ home.html
-│   │   ├─ menu.html
-│   │   └─ produtos.html
+│   │   ├─ produtos.html
+│   │   └─ menu.html
 │   │
-│   └─ static/                # arquivos estáticos
+│   └─ static/
 │       ├─ css/
 │       │   └─ style.css
 │       ├─ js/
 │       │   └─ main.js
-│       ├─ images/
-│       │   └─ ...
-│       └─ fonts/
-│           └─ inter.woff2
+│       └─ images/
 │
-├─ migrations/                # Alembic / Flask-Migrate
-├─ tests/                     # pytest
-├─ run.py                     # entrypoint da aplicação
+├─ migrations/                # Migrações (futuro)
+├─ tests/                     # Testes automatizados
+├─ run.py                     # Entry point da aplicação
 ├─ requirements.txt
-├─ Procfile                   # Railway
-├─ README.md
-├─ .env                       # NÃO versionar
+├─ Procfile                   # Deploy (Railway)
+├─ .env                       # Variáveis de ambiente (não versionar)
 ├─ .gitignore
-└─ pyproject.toml             # opcional
+└─ README.md
+
 ```
 ---
+## 🚀 Funcionalidades
+Cadastro de produtos por categoria:
 
-## 📁 Como Rodar
+Alimentos Principais
 
-```bash
+Complementos
+
+Temperos
+
+Higiene e Limpeza
+
+Ajuste de quantidade com botões + / −
+
+Edição rápida de preço direto na tela
+
+Cálculo automático de:
+
+Total atual da compra
+
+Gasto previsto
+
+Saldo disponível
+
+Persistência automática dos dados usando LocalStorage
+
+Botão para limpar todos os dados da compra
+
+Modal para cadastro rápido de produtos
+
+Interface moderna e organizada
+
+Layout responsivo para desktop e mobile
+
+## 🧮 Cálculo em Tempo Real
+O sistema recalcula automaticamente:
+
+Total de cada produto (preço × quantidade)
+
+Total geral da compra
+
+Saldo disponível com base no gasto previsto informado
+
+Qualquer alteração de preço, quantidade ou orçamento reflete instantaneamente nos valores exibidos.
+
+💾 Persistência de Dados
+A aplicação salva automaticamente no navegador:
+
+Quantidade dos produtos
+
+Preços atualizados
+
+Gasto previsto
+
+Isso garante que os dados não sejam perdidos ao atualizar a página, permitindo continuar a compra de onde parou.
+
+## 🪟 Modal de Cadastro de Produto
+O cadastro de novos produtos é feito através de um modal simples, permitindo:
+
+Informar nome do produto
+
+Definir preço
+
+Selecionar a categoria
+
+Após salvar, o produto aparece automaticamente na lista correspondente.
+
+## 🎨 Interface e Experiência do Usuário (UX)
+Design limpo e focado no conteúdo
+
+Botões grandes e acessíveis
+
+Separação clara por categorias
+
+Destaque visual para valores importantes
+
+Botão de ação destrutiva (Limpar dados) com cor diferenciada
+
+Interações sem recarregar a página
+
+📱 Desktop e Mobile
+💻 Desktop
+Visual completo
+
+Organização clara das categorias
+
+Ideal para planejamento detalhado
+
+📲 Mobile
+Layout adaptado ao toque
+
+Navegação simples
+
+Experiência semelhante a aplicativo
+
+⚙️ Tecnologias Utilizadas
+Python (Flask)
+
+HTML5
+
+CSS3
+
+JavaScript (Vanilla)
+
+Jinja2
+
+LocalStorage
+
+▶️ Como Rodar o Projeto
 pip install -r requirements.txt
-python run.py
-```
----
+python app.py
+Depois, acesse no navegador:
 
-## 🔗 Acesso ao Sistema (Deploy)
+http://127.0.0.1:5000
+📌 Observações
+O sistema não utiliza login
 
-O sistema está disponível online pelo Railway:
+Os dados da compra atual ficam salvos localmente no navegador
 
-➡️ ** não disponível **
+O cadastro de produtos é persistido no banco de dados
 
----
+Projeto ideal para uso pessoal ou familiar
 
-## 👨‍💻 Autor
-
-* Desenvolvido por **Eduardo Libório**
-* 📧 [eduardosoleno@protonmail.com](mailto:eduardosoleno@protonmail.com)
-
----
+## 👨‍💻 Autor 
+Desenvolvido por Eduardo Libório
+📧 eduardosoleno@protonmail.com  
