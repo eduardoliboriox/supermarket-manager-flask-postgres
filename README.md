@@ -18,42 +18,46 @@ O sistema substitui listas em papel ou anotações improvisadas, oferecendo uma 
 ## 📁 Estrutura do Projeto
 supermarket-system/
 ├─ app/
-│   ├─ __init__.py            # Application Factory (create_app)
-│   ├─ config.py              # Configurações e variáveis de ambiente
-│   ├─ extensions.py          # Conexão com PostgreSQL
+│   ├─ __init__.py            # create_app()
+│   ├─ config.py              # Config / env
+│   ├─ extensions.py          # DB (psycopg, etc)
 │   │
 │   ├─ routes/
-│   │   ├─ __init__.py
-│   │   ├─ pages.py           # Rotas HTML
-│   │   └─ api.py             # Rotas REST (JSON)
+│   │   ├─ __init__.py        # registra blueprints
+│   │   ├─ pages.py           # rotas HTML
+│   │   └─ api.py             # rotas REST (JSON)
 │   │
-│   ├─ services/              # Regras de negócio
-│   │   └─ __init__.py
+│   ├─ services/              # regras de negócio
+│   │   └─ __init__.py        # pacote services (NÃO blueprint)
 │   │
-│   ├─ repositories/          # Acesso ao banco (SQL)
-│   │   └─ __init__.py
+│   ├─ repositories/          # acesso ao banco (SQL)
+│   │   └─ __init__.py        # pacote repositories
 │   │
-│   ├─ templates/
+│   ├─ templates/             # Jinja2
 │   │   ├─ base.html
 │   │   ├─ home.html
-│   │   ├─ produtos.html
-│   │   └─ menu.html
+│   │   ├─ menu.html
+│   │   └─ produtos.html
 │   │
-│   └─ static/
+│   └─ static/                # arquivos estáticos
 │       ├─ css/
 │       │   └─ style.css
 │       ├─ js/
 │       │   └─ main.js
-│       └─ images/
+│       ├─ images/
+│       │   └─ ...
+│       └─ fonts/
+│           └─ inter.woff2
 │
-├─ migrations/                # Migrações (futuro)
-├─ tests/                     # Testes automatizados
-├─ run.py                     # Entry point da aplicação
+├─ migrations/                # Alembic / Flask-Migrate
+├─ tests/                     # pytest
+├─ run.py                     # entrypoint da aplicação
 ├─ requirements.txt
-├─ Procfile                   # Deploy (Railway)
-├─ .env                       # Variáveis de ambiente (não versionar)
+├─ Procfile                   # Cloud - Railway
+├─ README.md
+├─ .env                       # NÃO versionar
 ├─ .gitignore
-└─ README.md
+└─ pyproject.toml             # opcional
 ```
 ---
 
