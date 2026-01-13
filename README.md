@@ -14,7 +14,7 @@ Visualize a aplicação real através do link no final deste README.md.
 ## 🔹 Estrutura do projeto
 
 ```
-project/
+supermarket-system/
 ├─ app/
 │   ├─ __init__.py            # create_app()
 │   ├─ config.py              # Config / env
@@ -26,12 +26,12 @@ project/
 │   │   └─ api.py             # rotas REST
 │   │
 │   ├─ services/              # regras de negócio
-│   │   └─ __init__.py
+│   │   └─ __init__.py        # importa blueprints
 │   │
 │   ├─ repositories/          # acesso ao banco (SQL)
-│   │   └─ __init__.py
+│   │   └─ __init__.py        # importa blueprints
 │   │
-│   ├─ templates/             # Jinja2 (OBRIGATÓRIO aqui)
+│   ├─ templates/             # Jinja2
 │   │   ├─ base.html
 │   │   ├─ home.html
 │   │   ├─ menu.html
@@ -61,11 +61,11 @@ project/
 │
 ├─ tests/                     # pytest
 │
-├─ run.py                     # entrypoint LOCAL
+├─ run.py                     # entrypoint da aplicação
 ├─ requirements.txt
 ├─ Procfile                   # Railway
-├─ README.md
-├─ .env                       # LOCAL (NÃO versionar)
+├─ README.md                  # documentação principal
+├─ .env                       # variáveis locais (NÃO versionar)
 ├─ .gitignore
 └─ pyproject.toml             # opcional
 ```
@@ -83,7 +83,7 @@ python run.py
 
 O sistema está disponível online pelo Railway:
 
-➡️ ** **
+➡️ ** não disponível **
 
 ---
 
