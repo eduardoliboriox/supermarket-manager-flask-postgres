@@ -299,6 +299,7 @@ main {
     background: #323c41;
     opacity: 0.80;
     border-top: 1px solid #222;
+    border-radius: 20px;
 
     display: flex;
     justify-content: space-around;
