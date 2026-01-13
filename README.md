@@ -153,7 +153,7 @@ O sistema recalcula automaticamente:
 
 ```
 1. Clonar o repositório
-   git clone https://github.com/seu-usuario/seu-repositorio.git
+   git clone https://github.com/eduardoliboriox/supermarket-manager-flask-postgres.git
    cd seu-repositorio
 
 2. Criar e ativar o ambiente virtual
