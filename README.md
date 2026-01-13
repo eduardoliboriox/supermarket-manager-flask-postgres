@@ -156,7 +156,6 @@ pip install -r requirements.txt
 python run.py
 
 Depois, acesse no navegador:
-
 http://127.0.0.1:5000
 ```
 ---
